@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using static System.Console;
@@ -23,7 +24,7 @@ namespace Snake
             _width = buffer.ConsoleBuffer[0].Length;
             _height = buffer.ConsoleBuffer.Count;
         }
-        public void DisplayGame()
+        public void DisplayGame(Snake player)
         {
             // Reset buffer
             _buffer.ResetBuffer();
@@ -31,6 +32,7 @@ namespace Snake
             // Render all the things into buffer
             _render.DrawOverlay();
             _render.DrawEntities();
+            _render.DrawText(" Score: " + player.Score + " ", (4, 0));
 
             // Display it all in one fell swoop
             DisplayBuffer();

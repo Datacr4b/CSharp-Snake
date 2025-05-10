@@ -38,6 +38,14 @@ namespace Snake
             }
         }
 
+        public void DrawText(string message, (int x, int y) position)
+        {
+            for (int x = position.x; x < message.Length + position.x; x++)
+            {
+                _buffer.ConsoleBuffer[position.y][x] = new ConsoleChar(message[x-position.x]);
+            }
+        }
+
         public void DrawEntities()
         {
             int index = 0;

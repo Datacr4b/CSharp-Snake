@@ -34,8 +34,8 @@ namespace Snake
             _display = new Display(_gameBuffer, _collisionManager);
 
             CursorVisible = false;
-            SetWindowSize(_windowWidth, _windowHeight);
-            SetBufferSize(_windowWidth, _windowHeight);
+            SetWindowSize(52, _windowHeight);
+            SetBufferSize(52, _windowHeight);
         }
 
         public void MainGame()
@@ -52,7 +52,7 @@ namespace Snake
                 if (_timer.ElapsedMilliseconds >= _tickRate)
                 {
 
-                    _display.DisplayGame();
+                    _display.DisplayGame(_player);
                     _collisionManager.Update();
 
                     if (_player.HitWallOrTail)
